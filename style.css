@@ -33,7 +33,7 @@ body {
     width: 100%;
     position: fixed;
     z-index: 999;
-    background-color: #e8f13c;
+    background-color: #090908;
     padding: 12vh 10vw;
 }
 
@@ -158,10 +158,10 @@ body {
 }
 
 .hero {
-    background-color: rgb(150, 10, 10);
-    width: 70%;
+    background-color: rgb(2, 2, 2);
+    width: 67%;
     height: fit-content;
-    margin-left: 28%;
+    margin-left: 27%;
     /* overflow:; */
     display: flex;
     align-items: center;
@@ -188,7 +188,7 @@ body {
 }
 
 .hero:nth-child(2) {
-    margin-top: 16vh;
+    margin-top: 14vh;
 }
 
 /* .hero h2 {
@@ -231,7 +231,7 @@ body {
 #page2 {
     height: 100vh;
     width: 100%;
-    background-color: rgb(18, 170, 150);
+    background-color: rgb(2, 2, 2);
     padding-top: 20vh;
     position: relative;
 }
@@ -281,15 +281,132 @@ body {
 #page3 {
     min-height: 100vh;
     width: 100%;
-    background-color: rgb(124, 109, 109);
+    background-color: rgb(69, 0, 0);
     position: relative;
+    padding: 15vh 2vw;
+    margin-bottom: 20vh;
+}
+
+#page3 h1 {
+    font-size: 6vw;
+    text-transform: uppercase;
+    position: relative;
+    margin-left: 28%;
+}
+
+#page3 h1::before {
+    content: "02";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: -13%;
+}
+
+#page3 .underline {
+    margin-left: 28%;
+}
+
+#image-div-container {
+    /* background-color: red; */
+    padding: 1vw;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* flex-shrink: 0; */
+}
+
+.image-div {
+    height: 38vw;
+    width: 27vw;
+    /* background-color: blue; */
+    position: relative;
+    overflow: hidden;
+    margin: 2vw;
+}
+
+.image-div:nth-child(1) {
+    height: 30vw;
+    width: 22vw;
+
+}
+
+.image-div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.page3-circle1 {
+    margin-top: 28vh;
+
+    height: 20vw;
+    /* background-color: beige; */
+    width: 20vw;
+    /* z-index: 99999; */
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 13vw;
+}
+
+.page3-circle1 svg {
+    height: 32%;
+}
+
+.page3-circle2 {
+    /* margin-top: 28vh; */
+
+    height: 20vw;
+    /* background-color: beige; */
+    width: 20vw;
+    /* z-index: 99999; */
+    position: relative;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 13vw; */
+}
+
+.page3-circle2 svg {
+    height: 32%;
+    rotate: -45deg;
+    ;
+}
+.circle-in{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    /* color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    scale: 0;
+}
+.circle-in p {
+    font-size: 0.85vw;
+    color: black;
+    width: 60%;
+    font-weight: 500;
 }
 
 #page4 {
     min-height: 100vh;
     width: 100%;
     position: relative;
-    background-color: rgb(151, 15, 15);
+    background-color: rgb(0, 0, 0);
     padding-top: 7vh;
 }
 
@@ -304,6 +421,7 @@ body {
     text-transform: uppercase;
     position: relative;
 }
+
 #page4-content .underline {
     height: 2px;
     width: 80%;
@@ -320,7 +438,7 @@ body {
 #page4-content h1::before {
     content: "03";
     position: absolute;
-    font-size: 3vw; 
+    font-size: 3vw;
     font-weight: 100;
     font-family: "silk serif";
     left: -13%;
@@ -475,7 +593,7 @@ body {
     text-transform: uppercase;
     background-color: black;
     position: relative;
-        /* margin-left: 28vw;  */
+    /* margin-left: 28vw;  */
 }
 
 #footer h1::before {
@@ -523,4 +641,9 @@ body {
 #footer>h5 {
     font-weight: 500;
     font-size: 1.2vw;
+}
+
+._canvas_container {
+    z-index: 999999 !important;
+    pointer-events: none;
 }
