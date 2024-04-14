@@ -7,39 +7,24 @@
 function locomotiveAnime() {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
     const locoScroll = new LocomotiveScroll({
         el: document.querySelector("#main"),
         smooth: true
     });
-    // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
     locoScroll.on("scroll", ScrollTrigger.update);
 
-    // tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
     ScrollTrigger.scrollerProxy("#main", {
         scrollTop(value) {
             return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+        },
         getBoundingClientRect() {
             return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
         },
-        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
         pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
     });
 
-
-
-    tl.from(".purple p", { scale: 0.3, rotation: 45, autoAlpha: 0, ease: "power2" })
-        .from(".line-3", { scaleX: 0, transformOrigin: "left center", ease: "none" }, 0)
-        .to(".purple", { backgroundColor: "#28a92b" }, 0);
-
-
-
-    // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-    // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
     ScrollTrigger.refresh();
 
 }
@@ -109,28 +94,80 @@ function loadingAnimation() {
     }, "-=1")
 }
 function cursorAnimation() {
-    document.addEventListener("mousemove", function (dets) {
-        gsap.to("#cursor", {
-            left: dets.x,
-            top: dets.y,
+    Shery.mouseFollower({
+        //Parameters are optional.
+        skew: true,
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        duration: 0,
+    });
+    // document.addEventListener("mousemove", function (dets) {
+    //     gsap.to("#cursor", {
+    //         left: dets.x,
+    //         top: dets.y,
+    //     })
+    // })
+    Shery.makeMagnet("#nav-part2 h4", {
+    });
+
+
+
+    let video = document.querySelector("#video-container video");
+    let image = document.querySelector("video-container img")
+    let videocon = document.querySelector("#video-container");
+
+    videocon.addEventListener("mouseenter", function () {
+
+        videocon.addEventListener("mousemove", function (dets) {
+            gsap.to(".mousefollower", {
+                // display: "none",
+                opacity: 0,
+            })
+            gsap.to("#video-cursor", {
+                left: dets.x - 500,
+                top: dets.y - 200,
+            })
         })
     })
-    Shery.makeMagnet("#nav-part2 h4" /* Element to target.*/, {
-        //Parameters are optional.
-        // ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-        // duration: 1,
-    });
+    videocon.addEventListener("mouseleave", function () {
+        gsap.to(".mousefollower", {
+            // display: "initial",
+            opacity: 1,
+        })
+        gsap.to("#video-cursor", {
+            left: "70%",
+            top: "-15%",
+        })
+    })
+    let flag = 0;
+    videocon.addEventListener("click", function () {
+        if (flag == 0) {
+            video.play();
+            video.style.opacity = 1;
+            document.querySelector("#video-cursor").innerHTML = `<i class="ri-pause-circle-fill"></i>`;
+            gsap.to("#video-cursor", {
+                scale: 0.5,
+            });
+            flag = 1;
+        }
+        else {
+            video.pause();
+            video.style.opacity = 0;
+            document.querySelector("#video-cursor").innerHTML = `<i class="ri-play-large-fill"></i>`;
+            gsap.to("#video-cursor", {
+                scale: 1,
+            });
+            flag = 0;
+        }
+    })
+
 }
-
-
 loadingAnimation()
 cursorAnimation()
 locomotiveAnime()
 
-
 function sheryAnimation() {
     Shery.imageEffect(".image-div", {
-        style: 3,
+        style: 5,
 
         // debug:true,
         config: {
@@ -161,3 +198,23 @@ function sheryAnimation() {
     });
 }
 sheryAnimation();
+
+document.addEventListener("mousemove", function (dets) {
+    gsap.to("#flagg", {
+        x: dets.x,
+        y: dets.y,
+        zindex: 99999,
+    })
+})
+document.querySelector("#hero3").addEventListener("mousemove", function () {
+
+    gsap.to("#flagg", {
+        opacity: 1,
+    })
+})
+document.querySelector("#hero3").addEventListener("mouseleave", function () {
+
+    gsap.to("#flagg", {
+        opacity: 0,
+    })
+})
