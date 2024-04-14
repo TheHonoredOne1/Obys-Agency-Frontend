@@ -3,7 +3,6 @@
 //     el: document.querySelector('#main'),
 //     smooth: true
 // });
-
 function locomotiveAnime() {
     gsap.registerPlugin(ScrollTrigger);
 

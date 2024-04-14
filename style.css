@@ -145,15 +145,21 @@ body {
     /* #151515; */
     z-index: 100;
     margin-bottom: 15vw;
+    position: relative;
 }
 
 #page1 #nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 3.3vw 4vw;
 }
 
+#page1 #nav svg{
+    position: fixed;
+    left : 5%;
+    top :5%;
+}
 #nav-part2 {
     display: flex;
     justify-content: center;
@@ -236,8 +242,6 @@ body {
 
 }
 
-
-
 #page2 {
     height: 100vh;
     width: 100%;
@@ -294,14 +298,23 @@ body {
 /* #video-cursor i{
     color: white;
 } */
+
 #page3 {
-    min-height: 100vh;
+    margin-top: 30vw;
+    min-height: 200vh;
     width: 100%;
     background-color: #0B0B0B;
     position: relative;
     padding: 15vh 2vw;
-    margin-bottom: 29vw;
+    margin-bottom: 45vw;
 }
+
+/* 
+#page3 #image-1 {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+} */
 
 #page3 h1 {
     font-size: 6vw;
@@ -350,6 +363,7 @@ body {
 
 }
 
+
 .image-div img {
     height: 100%;
     width: 100%;
@@ -377,9 +391,8 @@ body {
 
 .page3-circle2 {
     /* margin-top: 28vh; */
-
     height: 23vw;
-    width: 23vw;
+    width: 22vw;
     position: relative;
     border: 2px solid #fff;
     border-radius: 50%;
@@ -394,6 +407,32 @@ body {
     rotate: -45deg;
 }
 
+.page3-circle3 {
+    margin-top: 48vh;
+    height: 20vw;
+    width: 20vw;
+    z-index: 99999;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2vw;
+}
+
+.page3-circle3 svg {
+    height: 32%;
+    rotate: -45deg;
+}
+
+/* .image-div:nth-child(3) {
+    margin-top: 5vw;
+    height: 30vw;
+    position: relative;
+    width: 24vw;
+} */
+
 .circle-in {
     height: 100%;
     width: 100%;
@@ -401,7 +440,6 @@ body {
     top: 0;
     left: 0;
     background-color: #fff;
-    /* color: black; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -411,7 +449,7 @@ body {
 }
 
 .circle-in p {
-    font-size: 0.95vw;
+    font-size: 1vw;
     color: black;
     width: 75%;
     font-weight: 500;
@@ -424,6 +462,8 @@ body {
 .page3-circle1:hover .circle-in {
     scale: 1;
     /* opacity: 1; */
+    padding: 10%;
+
 
 }
 
@@ -434,6 +474,7 @@ body {
 
 .page3-circle2:hover .circle-in {
     scale: 1;
+    background-color: khaki;
     /* opacity: 1; */
 
 }
@@ -441,6 +482,20 @@ body {
 .page3-circle2:hover p {
     scale: 1;
     opacity: 1;
+    padding: 13%;
+}
+
+.page3-circle3:hover .circle-in {
+    scale: 1;
+    background-color: rgb(233, 133, 166);
+    /* opacity: 1; */
+
+}
+
+.page3-circle3:hover p {
+    scale: 1;
+    opacity: 1;
+    padding: 13%;
 }
 
 #page4 {
@@ -893,6 +948,8 @@ body {
         margin-bottom: 4vw;
     }
 
+
+
     #page3 h1::before {
         content: "02";
         position: absolute;
@@ -1220,7 +1277,8 @@ body {
         width: 100%;
         background-color: #0B0B0B;
         position: relative;
-        padding: 5vw 5vw;;
+        padding: 5vw 5vw;
+        ;
 
     }
 
