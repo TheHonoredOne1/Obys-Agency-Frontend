@@ -1,8 +1,8 @@
 
-// const scroll = new LocomotiveScroll({
-//     el: document.querySelector('#main'),
-//     smooth: true
-// });
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('#main'),
+    smooth: true
+});
 
 function locomotiveAnime() {
     gsap.registerPlugin(ScrollTrigger);
@@ -100,12 +100,12 @@ function cursorAnimation() {
         ease: "cubic-bezier(0.23, 1, 0.320, 1)",
         duration: 0,
     });
-    // document.addEventListener("mousemove", function (dets) {
-    //     gsap.to("#cursor", {
-    //         left: dets.x,
-    //         top: dets.y,
-    //     })
-    // })
+    document.addEventListener("mousemove", function (dets) {
+        gsap.to("#cursor", {
+            left: dets.x,
+            top: dets.y,
+        })
+    })
     Shery.makeMagnet("#nav-part2 h4", {
     });
 
